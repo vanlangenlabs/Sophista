@@ -15,27 +15,27 @@
 - project_or_board: none
 
 ## Current execution
-- status: awaiting-approval
-- phase: Concept
-- node_id: conceptApproval
-- call_stack: Project.start -> Project.restore -> Project.conceptNeeded -> Concept.start -> Concept.concept -> Concept.conceptApproval
-- call_arguments: material revision requested by owner; preserve approved decisions unless superseded
-- pending_targets: R-0003 `.air/concept.md`, SHA-256 `7501e84bca985c167723f1a9e13bb0cf94589110978b951506b687b7b5701081`; I-0016
-- feature_id: none
+- status: waiting-human
+- phase: Feature intake
+- node_id: clarify
+- call_stack: Project.start -> Project.restore -> Project.conceptNeeded -> Project.featureIntake -> FeatureIntake.start -> capture -> clarify
+- call_arguments: continue proposed feature F-0001; no release selection or implementation
+- pending_targets: F-0001 `.air/features/F-0001/proposal.md`; I-0014
+- feature_id: F-0001
 - release_id: none
-- next_action: Present the exact revised Concept for explicit owner review and approval. Keep Feature intake paused; do not implement.
+- next_action: Ask only the remaining Feature intake questions for F-0001; do not draft a Definition or implement until the required details are clear.
 
 ## Records
 | ID | Type | Path | record_status | Current SHA-256 | Approved SHA-256 | Depends on | Tracker reference |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | R-0001 | README | `.air/README.md` | none | `97b1b7b15f0f9510074eadb22a23e173b0d2dc279eaa285a3d7cab4620b6291b` | none | none | none |
 | R-0002 | Index | `.air/index.md` | none | unknown (self-referential) | none | none | none |
-| R-0003 | Concept | `.air/concept.md` | draft | `7501e84bca985c167723f1a9e13bb0cf94589110978b951506b687b7b5701081` | `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | none | none |
+| R-0003 | Concept | `.air/concept.md` | approved | `7501e84bca985c167723f1a9e13bb0cf94589110978b951506b687b7b5701081` | `7501e84bca985c167723f1a9e13bb0cf94589110978b951506b687b7b5701081` | none | none |
 
 ## Features
 | Feature ID | Definition record ID | feature_status | Active release ID or none | Prior status if blocked | Event reference |
 | --- | --- | --- | --- | --- | --- |
-| F-0001 | none | proposed | none | none | I-0014 |
+| F-0001 | none | clarifying | none | none | I-0014 |
 
 ## Releases
 | Release ID | Scope record ID | Design record ID or none | release_status | Prior status if blocked | Event reference |
@@ -57,6 +57,7 @@
 | A-0011 | change | R-0002 | unknown -> unknown (self-referential index) | Operational state change: blocked | Copilot | 2026-11-05T17:27:38Z | Resume validation found duplicate historical interaction IDs `I-0008` and `I-0009` with conflicting states. The owner directed chronological sorting and renumbering; the affected rows are now uniquely identified as I-0009 and I-0011, with subsequent entries shifted to preserve order. | F-0001 remains proposed; Concept approval A-0010 remains valid. No Concept revision or implementation performed by this reconciliation. | Resume the saved Feature-intake position, then assess and prepare the requested Concept revision. |
 | A-0012 | change | R-0002 | index SHA-256 before/after not recorded (index is self-referential) | Index correction: chronological interaction renumbering | Copilot | 2026-11-05T17:37:40Z | At the owner's direction, ordered the existing interaction entries chronologically and assigned unique sequential IDs I-0001 through I-0015. Preserved historical entry contents and states; closed the duplicate-ID reconciliation question as resolved on the owner's direction. No event timestamps were invented. Updated cross-references. | Duplicate historical IDs I-0008/I-0009 resolved; Concept content and F-0001 proposal unchanged by this index-only correction. | Continue the owner's requested Concept revision; present the new Concept digest for review and approval. |
 | A-0013 | change | R-0003 | `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` -> `7501e84bca985c167723f1a9e13bb0cf94589110978b951506b687b7b5701081` | Material Concept revision | Copilot | 2026-11-05T17:37:40Z | Added the owner's requested structured-knowledge management and API capability, external source-import boundary, independent document hierarchy and retrieval segments, concurrent embedding models, embedding lifecycle and incremental synchronization, multi-category profiles, and traceability to original document locations. Kept the Concept at the what level; updated the success statement to remove the superseded assumption that prepared/embedded documents are wholly external. | Explicitly supersedes the approved Concept's read-only prepared-knowledge boundary; prior approval A-0010 remains historical but does not approve this new digest. F-0001 stays proposed and paused. | Await explicit approval or requested changes for this exact digest; do not start feature intake or implementation before approval. |
+| A-0014 | decision | R-0003 | `7501e84bca985c167723f1a9e13bb0cf94589110978b951506b687b7b5701081` -> same | approved | @jvanlangen | 2026-11-05T17:46:19.772Z | Owner explicitly approved with “dit keur ik goed” in direct response to the review request for this exact Concept digest. | Concept revision A-0013 is approved; the previous Concept approval A-0010 remains historical and does not replace this approval. AIRFlow source ref `52b9308697b5c8ac4baa3660071490be7e5e7aa8` remains the current recorded version and matches the latest commit identified for `airflow.md`; feature-intake clarification I-0014 remains pending. | Continue Feature intake at F-0001 clarification. Do not select a release or implement. |
 
 ## Verification evidence
 | Feature/release | Check | Result | Evidence path/reference | Digest | Current/stale and reason |
@@ -80,4 +81,4 @@
 | I-0013 | Approval | resolved | R-0003 `.air/concept.md`, SHA-256 `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | Explicitly approve this exact Concept or request revisions. | Owner explicitly approved with “ik keur deze versie goed” in the task conversation on 2026-11-05. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | Approval A-0010 recorded; continue to Feature intake. |
 | I-0014 | Question | awaiting-input | F-0001 `.air/features/F-0001/proposal.md`, SHA-256 `761cc110ee836c9d505a5eafcc5e491544adb237ef63b822418ccb0f749ebcca` | The captured first feature proposal is to answer questions using relevant, prepared Markdown content with a verifiable source citation; when no relevant source is found, general model knowledge may be used with clear disclosure. Is this the first feature you want to define? If yes, what source detail should the citation show so you can verify it (for example document name and section), and what should be explicitly in or out of this first feature? | Awaiting owner response. | Project.featureIntake -> FeatureIntake.start -> capture -> clarify | Incorporate only answered points; retain gaps and clarify before drafting a Definition. Do not select a release or implement during intake. |
 | I-0015 | Question | resolved | `.air/index.md` duplicate historical interaction identifiers | The index contained duplicate IDs I-0008 and I-0009 with differing states. The owner asked to sort the entries by time and renumber from there. | Owner direction: “kun je ze op tijd sorteren en vanuit daar hernummeren?” | Project.start -> restore -> prior Feature-intake clarify; resume after index reconciliation | Entries sorted in their recorded chronological sequence and renumbered uniquely; resume the pending Concept revision request. |
-| I-0016 | Approval | awaiting-approval | R-0003 `.air/concept.md`, SHA-256 `7501e84bca985c167723f1a9e13bb0cf94589110978b951506b687b7b5701081` | Review the exact revised Concept in `.air/concept.md` and explicitly approve this digest or request changes. In particular, confirm the expanded Sophista knowledge-management and embedding boundary. | Awaiting owner decision. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | On requested changes, revise and resubmit. On explicit approval, record approval for this exact digest, then resume Feature intake. Do not implement meanwhile. |
+| I-0016 | Approval | resolved | R-0003 `.air/concept.md`, SHA-256 `7501e84bca985c167723f1a9e13bb0cf94589110978b951506b687b7b5701081` | Review the exact revised Concept in `.air/concept.md` and explicitly approve this digest or request changes. In particular, confirm the expanded Sophista knowledge-management and embedding boundary. | Owner explicitly replied “dit keur ik goed” at 2026-11-05T17:46:19.772Z to the review request naming this digest; approval recorded in A-0014. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | Concept approved; resume Feature intake at I-0014. |
