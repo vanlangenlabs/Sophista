@@ -57,15 +57,14 @@ uitbreiding.
 
 ## Succesmaten
 
-Met succesmaten bedoel ik hoe we later kunnen beoordelen of Sophista gebruikers
-daadwerkelijk helpt. Bijvoorbeeld: vinden gebruikers relevante informatie,
-zijn antwoorden aantoonbaar op die informatie gebaseerd en komt het antwoord
-snel genoeg? Dit zijn mogelijke manieren om naar het resultaat te kijken, geen
-vastgestelde doelen of eisen. De vraag is dus welke uitkomst jij als eerste
-belangrijk wilt vinden en hoe je zou herkennen dat die goed genoeg is.
+De eerste gewenste gebruikersuitkomst is dat Sophista vragen over een onderwerp
+kan beantwoorden met relevante inhoud uit de voorbereide Markdown-documenten,
+en dat de gebruiker de gebruikte informatie kan terugvinden via een bron bij
+het antwoord. De documenten worden buiten Sophista verwerkt, bijvoorbeeld
+opgedeeld in stukken en gevectoriseerd, voordat Sophista ze voor antwoorden
+gebruikt.
 
-De eigenaar heeft nog geen prioritaire uitkomst, meetmethode, streefwaarde of
-acceptatiedrempel gekozen.
+Er zijn nog geen meetmethode, streefwaarde of acceptatiedrempel gekozen.
 
 ## Besluiten en bewijs
 
@@ -85,12 +84,14 @@ acceptatiedrempel gekozen.
   de eigenaar antwoorden met eigen kennis, mits dit duidelijk wordt vermeld.
 - De eigenaar gaf aan dat Sophista in eerste instantie het gebruikersbeheer van
   OpenWebUI gebruikt.
+- De eigenaar noemde als eerste gewenste gebruikersuitkomst dat Sophista vragen
+  over een onderwerp kan beantwoorden op basis van toegevoegde Markdown-documenten
+  die vooraf zijn opgedeeld en gevectoriseerd, en dat de gebruikte informatie
+  met een bron terug te vinden is.
 - Bewijs: de door de eigenaar aangeleverde Sophista-specificatie en
   verduidelijkingen in de taakconversatie van 2026-11-05.
 
 ## Open vragen
 
-- Welke gebruikersuitkomst als eerste beoordeeld wordt en hoe dat overtuigend
-  wordt vastgesteld, is nog niet bepaald. Dit betekent: wat moet voor jou het
-  belangrijkste eerste teken zijn dat Sophista nuttig werkt, en waaraan zou je
-  dat kunnen herkennen?
+- Welke meetmethode, streefwaarde of acceptatiedrempel past bij deze gewenste
+  uitkomst, is nog niet bepaald.
