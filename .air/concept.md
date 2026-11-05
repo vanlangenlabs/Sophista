@@ -22,7 +22,7 @@ andere applicatie.
 
 Sophista biedt clients een compatibele middleware-interface met geconfigureerde
 profielen die als afzonderlijke taalmodelkeuzes beschikbaar zijn. Een profiel
-bepaalt uit welke een of meer kennis-categorieën bij een vraag informatie kan
+bepaalt uit welke een of meer kenniscategorieën bij een vraag informatie kan
 worden opgehaald en naar welk taalmodel het verzoek wordt gerouteerd. Sophista
 verrijkt zo het verzoek met relevante context; als de client om streaming vraagt,
 ontvangt die het antwoord stapsgewijs.
@@ -79,10 +79,9 @@ uitbreiding.
 ## Succesmaten
 
 Het systeem kan een antwoord formuleren met een bronvermelding die de gebruiker
-kan controleren. De antwoorden gebruiken relevante inhoud uit voorbereide
-Markdown-documenten. De documenten worden buiten Sophista verwerkt, bijvoorbeeld
-opgedeeld in stukken en gevectoriseerd, voordat Sophista ze voor antwoorden
-gebruikt.
+kan controleren. De antwoorden gebruiken relevante inhoud uit Markdown-documenten
+die externe applicaties importeren en interpreteren en die via Sophista als
+gestructureerde kennis worden beheerd.
 
 De acceptatievoorwaarde is dat het antwoord een controleerbare bronvermelding
 bevat. Aanvullende meetmethoden of numerieke streefwaarden zijn voor deze fase
@@ -95,9 +94,10 @@ niet nodig.
   waarna ze naar het bijbehorende taalmodel worden gerouteerd.
 - De eigenaar bevestigde dat de beschreven profiel-, RAG-, embedding-,
   routerings- en streamingarchitectuur vanaf het begin centraal moet staan.
-- De eigenaar gaf aan dat documentverwerking en indexering in een afzonderlijke
-  applicatie plaatsvinden en dat Sophista de kennisopslag tijdens verzoeken
-  alleen-lezen gebruikt.
+- De eigenaar gaf aanvankelijk aan dat documentverwerking en indexering in een
+  afzonderlijke applicatie plaatsvinden en dat Sophista de kennisopslag tijdens
+  verzoeken alleen-lezen gebruikt. Deze productgrens is door de latere expliciete
+  vraag om kennis- en embeddingbeheer via Sophista herzien.
 - De eigenaar noemde code, machinehandleidingen, klant-URS'en en wiki's als
   mogelijke kennisbronnen, zonder de kennisdomeinen daartoe te beperken.
 - De eigenaar vereist dat gevonden en in het antwoord gebruikte informatie als
@@ -107,9 +107,8 @@ niet nodig.
 - De eigenaar gaf aan dat Sophista zelf geen gebruikersbeheer heeft en dat een
   andere applicatie dit verzorgt.
 - De eigenaar noemde als eerste gewenste gebruikersuitkomst dat Sophista vragen
-  over een onderwerp kan beantwoorden op basis van toegevoegde Markdown-documenten
-  die vooraf zijn opgedeeld en gevectoriseerd, en dat de gebruikte informatie
-  met een bron terug te vinden is.
+  over een onderwerp kan beantwoorden op basis van Markdown-documenten en dat de
+  gebruikte informatie met een bron terug te vinden is.
 - De eigenaar verduidelijkte dat acceptatie betekent dat het systeem een antwoord
   kan formuleren met een bronvermelding die te valideren is; aanvullende
   meetmethoden of numerieke streefwaarden zijn voor nu niet nodig.
@@ -125,7 +124,7 @@ niet nodig.
   verouderde embeddings.
 - De eigenaar vroeg om incrementele synchronisatie die identiteiten waar mogelijk
   behoudt en alleen afhankelijke embeddings ongeldig maakt bij gewijzigde inhoud.
-- De eigenaar vroeg om profielen die meerdere kennis-categorieën kunnen gebruiken
+- De eigenaar vroeg om profielen die meerdere kenniscategorieën kunnen gebruiken
   en om bronverwijzingen die de oorspronkelijke documentlocatie traceerbaar maken.
 - Bewijs: de door de eigenaar aangeleverde Sophista-specificatie en
   verduidelijkingen in de taakconversatie van 2026-11-05.
