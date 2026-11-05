@@ -16,19 +16,20 @@
 ## Current execution
 - status: waiting-human
 - phase: Concept
-- node_id: concept
+- node_id: conceptApproval
 - call_stack: Project.start -> Project.restore -> Project.conceptNeeded -> Concept.start -> Concept.concept
 - call_arguments: none
 - pending_targets: none
 - feature_id: none
 - release_id: none
-- next_action: Await project-owner answers to the pending Concept questions. Do not draft `.air/concept.md` until answered.
+- next_action: Await explicit owner approval or requested revisions for `.air/concept.md` SHA-256 `ab8b892e13b68a5068c91792d4743e5d5eafad588bacc3bda048a88e4deb8224`. Do not begin feature intake before approval.
 
 ## Records
 | ID | Type | Path | record_status | Current SHA-256 | Approved SHA-256 | Depends on | Tracker reference |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | R-0001 | README | `.air/README.md` | none | `97b1b7b15f0f9510074eadb22a23e173b0d2dc279eaa285a3d7cab4620b6291b` | none | none | none |
 | R-0002 | Index | `.air/index.md` | none | unknown (self-referential) | none | none | none |
+| R-0003 | Concept | `.air/concept.md` | pending-approval | `ab8b892e13b68a5068c91792d4743e5d5eafad588bacc3bda048a88e4deb8224` | none | none | none |
 
 ## Features
 | Feature ID | Definition record ID | feature_status | Active release ID or none | Prior status if blocked | Event reference |
@@ -41,6 +42,7 @@
 ## Approval and change events
 | Event ID | Kind: decision/change | Record/entity | Old/new SHA-256 | Decision or change classification | Actor | Timestamp | Evidence and rationale | Affected records/checks/events | Next state |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A-0001 | change | R-0003 | none -> `ab8b892e13b68a5068c91792d4743e5d5eafad588bacc3bda048a88e4deb8224` | Initial Concept draft | Copilot | 2026-11-05T14:37:38Z | Drafted from the owner's Sophista specification in the task conversation; technical choices were kept out of the Concept and remain open for confirmation. | No prior records, checks or approvals affected. | Await explicit human review/approval of this exact digest. |
 
 ## Verification evidence
 | Feature/release | Check | Result | Evidence path/reference | Digest | Current/stale and reason |
@@ -49,4 +51,5 @@
 ## Pending interaction
 | ID | Type | State | Target record/digest | Request and allowed outcomes | Response/evidence | Prior node/call stack | Next action or blocker |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| I-0001 | Question | awaiting-input | Concept / no record drafted | What do you want this project to do, or what problem should it solve? Who is it for, and what outcome should it create? What boundaries or non-goals should guide it? How would you recognize success, and what decisions or evidence should support that direction? A narrative answer is fine; unanswered points will remain open. | Awaiting project-owner response | Project.start -> restore -> conceptNeeded -> Concept.start -> concept | Use the answers to draft `.air/concept.md`, keep unresolved questions visible, then request review and explicit approval; do not begin feature intake before approval. |
+| I-0001 | Question | resolved | Concept / no record drafted | What do you want this project to do, or what problem should it solve? Who is it for, and what outcome should it create? What boundaries or non-goals should guide it? How would you recognize success, and what decisions or evidence should support that direction? A narrative answer is fine; unanswered points will remain open. | Owner provided the Sophista RAG Proxy & Profile Middleware specification in the task conversation on 2026-11-05. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept | Draft `.air/concept.md`; retain unresolved details for review. |
+| I-0002 | Approval | awaiting-approval | R-0003 `.air/concept.md`, SHA-256 `ab8b892e13b68a5068c91792d4743e5d5eafad588bacc3bda048a88e4deb8224` | Review this exact Concept and explicitly approve it, or request revisions. Approval establishes the Concept and permits Project to proceed to feature intake; review or silence alone is not approval. | Awaiting project-owner decision. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | On requested revisions, return the Concept to draft and resubmit; on explicit approval, validate and record approval evidence before feature intake. |
