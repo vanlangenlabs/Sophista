@@ -15,8 +15,8 @@ een onderliggend model.
 - De mensen die Sophista-profielen en de bijbehorende kenniscontext beheren;
   hun precieze rol is nog niet bevestigd.
 
-In de eerste fase gebruikt Sophista het gebruikersbeheer van OpenWebUI. Er is
-geen aanvullend gebruikers- of rollenbeheer in Sophista bevestigd.
+Sophista beheert zelf geen gebruikers. Gebruikersbeheer wordt verzorgd door een
+andere applicatie.
 
 ## Gewenst resultaat
 
@@ -43,8 +43,8 @@ uitbreiding.
 - Het verwerken, inlezen en indexeren van brondocumenten gebeurt in een
   afzonderlijke applicatie; Sophista wijzigt de kennisopslag niet tijdens het
   beantwoorden van verzoeken.
-- In eerste instantie gebruikt Sophista het bestaande gebruikersbeheer van
-  OpenWebUI.
+- Sophista heeft geen eigen gebruikersbeheer; een andere applicatie is hiervoor
+  verantwoordelijk.
 - De organisatiekennis kan uit verschillende soorten bronnen komen, waaronder
   code, handleidingen van machines, klant-URS'en en wiki's. Deze voorbeelden
   beperken de mogelijke kennisdomeinen niet.
@@ -82,8 +82,8 @@ Er zijn nog geen meetmethode, streefwaarde of acceptatiedrempel gekozen.
   bron bij het resultaat wordt weergegeven.
 - Als geen relevante organisatiebron wordt gevonden, mag het taalmodel volgens
   de eigenaar antwoorden met eigen kennis, mits dit duidelijk wordt vermeld.
-- De eigenaar gaf aan dat Sophista in eerste instantie het gebruikersbeheer van
-  OpenWebUI gebruikt.
+- De eigenaar gaf aan dat Sophista zelf geen gebruikersbeheer heeft en dat een
+  andere applicatie dit verzorgt.
 - De eigenaar noemde als eerste gewenste gebruikersuitkomst dat Sophista vragen
   over een onderwerp kan beantwoorden op basis van toegevoegde Markdown-documenten
   die vooraf zijn opgedeeld en gevectoriseerd, en dat de gebruikte informatie
