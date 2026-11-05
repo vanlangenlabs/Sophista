@@ -57,14 +57,14 @@ uitbreiding.
 
 ## Succesmaten
 
-De eerste gewenste gebruikersuitkomst is dat Sophista vragen over een onderwerp
-kan beantwoorden met relevante inhoud uit de voorbereide Markdown-documenten,
-en dat de gebruiker de gebruikte informatie kan terugvinden via een bron bij
-het antwoord. De documenten worden buiten Sophista verwerkt, bijvoorbeeld
+Het systeem kan een antwoord formuleren met een bronvermelding die de gebruiker
+kan controleren. De antwoorden gebruiken relevante inhoud uit voorbereide
+Markdown-documenten. De documenten worden buiten Sophista verwerkt, bijvoorbeeld
 opgedeeld in stukken en gevectoriseerd, voordat Sophista ze voor antwoorden
 gebruikt.
 
-Er zijn nog geen meetmethode, streefwaarde of acceptatiedrempel gekozen.
+De acceptatievoorwaarde is dat het antwoord een controleerbare bronvermelding
+bevat. Aanvullende meetmethoden of numerieke streefwaarden zijn niet vastgesteld.
 
 ## Besluiten en bewijs
 
@@ -88,10 +88,11 @@ Er zijn nog geen meetmethode, streefwaarde of acceptatiedrempel gekozen.
   over een onderwerp kan beantwoorden op basis van toegevoegde Markdown-documenten
   die vooraf zijn opgedeeld en gevectoriseerd, en dat de gebruikte informatie
   met een bron terug te vinden is.
+- De eigenaar verduidelijkte dat acceptatie betekent dat het systeem een antwoord
+  kan formuleren met een bronvermelding die te valideren is.
 - Bewijs: de door de eigenaar aangeleverde Sophista-specificatie en
   verduidelijkingen in de taakconversatie van 2026-11-05.
 
 ## Open vragen
 
-- Welke meetmethode, streefwaarde of acceptatiedrempel past bij deze gewenste
-  uitkomst, is nog niet bepaald.
+- Aanvullende meetmethoden of numerieke streefwaarden zijn niet vastgesteld.
