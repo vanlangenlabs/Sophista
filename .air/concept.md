@@ -10,7 +10,7 @@ een onderliggend model.
 
 ## Beoogde gebruikers
 
-- Mensen die via OpenWebUI of een vergelijkbare client vragen stellen en een
+- Mensen die via een client vragen stellen en een
   Sophista-profiel kiezen.
 - De mensen die Sophista-profielen en de bijbehorende kenniscontext beheren;
   hun precieze rol is nog niet bevestigd.
