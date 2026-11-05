@@ -15,9 +15,8 @@ een onderliggend model.
 - De mensen die Sophista-profielen en de bijbehorende kenniscontext beheren;
   hun precieze rol is nog niet bevestigd.
 
-Gebruikersaccounts en -rollen vallen volgens de eigenaar onder OpenWebUI. Het
-is nog onduidelijk of Sophista daarnaast gebruikersidentiteit nodig heeft om
-toegang tot verschillende kennisbronnen te begrenzen.
+In de eerste fase gebruikt Sophista het gebruikersbeheer van OpenWebUI. Er is
+geen aanvullend gebruikers- of rollenbeheer in Sophista bevestigd.
 
 ## Gewenst resultaat
 
@@ -27,6 +26,9 @@ bepaalt welke organisatiekennis bij een vraag wordt opgehaald en naar welk
 taalmodel het verzoek wordt gerouteerd. Sophista verrijkt zo het verzoek met
 relevante context; als de client om streaming vraagt, ontvangt die het antwoord
 stapsgewijs.
+
+De informatie uit de organisatiekennis die voor het antwoord wordt gevonden en
+gebruikt, wordt als bron bij het resultaat getoond.
 
 De eigenaar heeft aangegeven dat deze profiel-, kennisverrijkings- en
 routeringsarchitectuur de kern van het product vormt, niet een optionele
@@ -38,8 +40,11 @@ uitbreiding.
 - Het verwerken, inlezen en indexeren van brondocumenten gebeurt in een
   afzonderlijke applicatie; Sophista wijzigt de kennisopslag niet tijdens het
   beantwoorden van verzoeken.
-- Gebruikersaccounts en -rollen worden door OpenWebUI beheerd, niet door
-  Sophista.
+- In eerste instantie gebruikt Sophista het bestaande gebruikersbeheer van
+  OpenWebUI.
+- De organisatiekennis kan uit verschillende soorten bronnen komen, waaronder
+  code, handleidingen van machines, klant-URS'en en wiki's. Deze voorbeelden
+  beperken de mogelijke kennisdomeinen niet.
 - De concrete technische uitwerking van de in de specificatie genoemde
   API-compatibiliteit, providers, vectoropslag, configuratie en streaming hoort
   bij de Design-fase, na goedkeuring van het Concept en vóór implementatie. Die
@@ -56,8 +61,8 @@ te maken zijn bijvoorbeeld of de opgehaalde kennis relevant is voor de vraag,
 of antwoorden aantoonbaar op die kennis steunen en hoe lang een antwoord op
 zich laat wachten. Dit zijn voorbeelden, geen vastgestelde eisen of doelen.
 
-De eigenaar heeft nog geen meetmethode, streefwaarde of acceptatiedrempel
-gekozen.
+De eigenaar heeft nog geen prioritaire uitkomst, meetmethode, streefwaarde of
+acceptatiedrempel gekozen.
 
 ## Besluiten en bewijs
 
@@ -69,24 +74,19 @@ gekozen.
 - De eigenaar gaf aan dat documentverwerking en indexering in een afzonderlijke
   applicatie plaatsvinden en dat Sophista de kennisopslag tijdens verzoeken
   alleen-lezen gebruikt.
-- Gebruikersaccounts en -rollen worden volgens de eigenaar door OpenWebUI
-  afgehandeld.
+- De eigenaar noemde code, machinehandleidingen, klant-URS'en en wiki's als
+  mogelijke kennisbronnen, zonder de kennisdomeinen daartoe te beperken.
+- De eigenaar vereist dat gevonden en in het antwoord gebruikte informatie als
+  bron bij het resultaat wordt weergegeven.
+- De eigenaar gaf aan dat Sophista in eerste instantie het gebruikersbeheer van
+  OpenWebUI gebruikt.
 - Bewijs: de door de eigenaar aangeleverde Sophista-specificatie en
   verduidelijkingen in de taakconversatie van 2026-11-05.
 
 ## Open vragen
 
-- Welke soorten kennis en vragen vallen in de eerste productcontext? Zijn de
-  HR- en technische profielen uit de specificatie voorbeelden of de beoogde
-  startcontext?
-- Als bij een vraag geen relevante organisatiekennis wordt gevonden, moet
-  Sophista dan geen inhoudelijk antwoord geven, of mag het onderliggende model
-  ook algemene kennis gebruiken? Moet een antwoord laten zien op welke
-  brondocumenten het steunt?
-- Is het voldoende dat OpenWebUI accounts en rollen beheert, of moet Sophista
-  ook identiteit of toegangscontext ontvangen om kennis per gebruiker te
-  filteren?
-- Welke gebruikersuitkomst is voor jou het belangrijkst om als eerste te
-  beoordelen: relevante opgehaalde kennis, antwoorden die op die kennis
-  steunen, reactietijd, of iets anders? Welke manier van beoordelen zou voor
-  jou overtuigend zijn? Er zijn nog geen getallen nodig.
+- Als bij een vraag geen relevante organisatiekennis wordt gevonden, mag het
+  onderliggende model dan algemene kennis gebruiken, of moet Sophista aangeven
+  dat er geen passende bron is gevonden?
+- Welke gebruikersuitkomst als eerste beoordeeld wordt en hoe dat overtuigend
+  wordt vastgesteld, is nog niet bepaald.
