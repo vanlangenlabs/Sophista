@@ -8,6 +8,7 @@
 | `docs/airflow/airflow.md` | Entry point and shared instructions | `52b9308697b5c8ac4baa3660071490be7e5e7aa8` | `e8efa3269c8be1320f75aac44fd5fc78b6ddce5f5e5c268f263e08cedc93714a` |
 | `docs/airflow/flows/project.mmd` | Project orchestration flow | `52b9308697b5c8ac4baa3660071490be7e5e7aa8` | `c2df447df194476e55ab928c30f4de7053e122ce5dac9738bccb01fd43e9d0ea` |
 | `docs/airflow/flows/concept.mmd` | Concept phase flow | `52b9308697b5c8ac4baa3660071490be7e5e7aa8` | `6fa64bc1aceafaa158ec036b4e58c07792cad863fa3d86100d03134de7b0531f` |
+| `docs/airflow/flows/feature-intake.mmd` | Feature intake flow | `52b9308697b5c8ac4baa3660071490be7e5e7aa8` | `ffe131e80b6b5e48cb898a15113426625c286f23dd6864b15b6fc80d589d2acb` |
 
 ## Tracker integration
 - provider: github
@@ -15,25 +16,26 @@
 
 ## Current execution
 - status: waiting-human
-- phase: Concept
-- node_id: conceptApproval
-- call_stack: Project.start -> Project.restore -> Project.conceptNeeded -> Concept.start -> Concept.concept -> Concept.conceptApproval
+- phase: Feature intake
+- node_id: clarify
+- call_stack: Project.start -> Project.restore -> Project.conceptNeeded -> Concept.start -> Concept.concept -> Concept.conceptApproval -> Project.featureIntake -> FeatureIntake.start -> capture -> clarify
 - call_arguments: none
 - pending_targets: none
 - feature_id: none
 - release_id: none
-- next_action: Await explicit owner approval or requested revisions for `.air/concept.md` SHA-256 `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1`. Do not begin feature intake before approval.
+- next_action: Clarify whether the captured F-0001 proposal is the desired first feature and what source detail is needed for users to validate citations. Do not draft a Definition or implement until the proposal is sufficiently clarified.
 
 ## Records
 | ID | Type | Path | record_status | Current SHA-256 | Approved SHA-256 | Depends on | Tracker reference |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | R-0001 | README | `.air/README.md` | none | `97b1b7b15f0f9510074eadb22a23e173b0d2dc279eaa285a3d7cab4620b6291b` | none | none | none |
 | R-0002 | Index | `.air/index.md` | none | unknown (self-referential) | none | none | none |
-| R-0003 | Concept | `.air/concept.md` | pending-approval | `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | none | none | none |
+| R-0003 | Concept | `.air/concept.md` | approved | `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | none | none |
 
 ## Features
 | Feature ID | Definition record ID | feature_status | Active release ID or none | Prior status if blocked | Event reference |
 | --- | --- | --- | --- | --- | --- |
+| F-0001 | none | proposed | none | none | I-0012 |
 
 ## Releases
 | Release ID | Scope record ID | Design record ID or none | release_status | Prior status if blocked | Event reference |
@@ -51,6 +53,7 @@
 | A-0007 | change | R-0003 | `069edc80affc9f4778f1b2416874e62f53ac2a2082d94525de072ffe373fd7c1` -> `7e7838b7180aefd84abfbee8ca7cc17e133ac376f35374267e95272809ade917` | Editorial Concept revision | Copilot | 2026-11-05T15:36:17Z | Removed the remaining OpenWebUI client example to comply with the owner's request that the Concept not mention OpenWebUI. | Prior approval request I-0008 targets the old digest and is stale; no approval was recorded. | Await explicit review and approval for this exact digest. |
 | A-0008 | change | R-0003 | `7e7838b7180aefd84abfbee8ca7cc17e133ac376f35374267e95272809ade917` -> `a28262f4136073beef8389f49861b24b3a25140a53943df105cfcbbef66e43e8` | Material Concept revision | Copilot | 2026-11-05T15:42:23Z | Recorded the owner's acceptance criterion: the system formulates an answer with a source citation that can be validated. The Concept retains no numeric thresholds. | Prior approval request I-0009 targets the old digest and is stale; no approval was recorded. | Await explicit approval for this exact digest. |
 | A-0009 | change | R-0003 | `a28262f4136073beef8389f49861b24b3a25140a53943df105cfcbbef66e43e8` -> `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | Editorial Concept revision | Copilot | 2026-11-05T15:45:40Z | Recorded the owner's decision that additional measurement methods and numeric targets are not needed for now. | Prior approval request I-0010 targets the old digest and is stale; no approval was recorded. | Await explicit approval for this exact digest. |
+| A-0010 | decision | R-0003 | `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` -> same | approved | @jvanlangen | 2026-11-05T15:51:31Z | Owner explicitly said “ik keur deze versie goed” in response to the Concept review request for this exact digest. | No dependent approvals or checks invalidated. | Concept established; Project proceeds to Feature intake. |
 
 ## Verification evidence
 | Feature/release | Check | Result | Evidence path/reference | Digest | Current/stale and reason |
@@ -71,4 +74,5 @@
 | I-0009 | Approval | awaiting-approval | R-0003 `.air/concept.md`, SHA-256 `7e7838b7180aefd84abfbee8ca7cc17e133ac376f35374267e95272809ade917` | Review this exact Concept and explicitly approve it, or request revisions. The desired outcome is documented; specific measurement methods, targets and thresholds remain open. Approval establishes the Concept and permits Project to proceed to feature intake; review or silence alone is not approval. | Awaiting owner decision. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | On requested changes, return to draft, revise and resubmit; on explicit approval, validate and record evidence for this exact digest before feature intake. |
 | I-0009 | Approval | blocked | R-0003 `.air/concept.md`, old SHA-256 `7e7838b7180aefd84abfbee8ca7cc17e133ac376f35374267e95272809ade917` | The owner supplied the acceptance criterion, materially revising the Concept; this approval target is stale. | Owner said acceptance is when the system can formulate an answer with a source citation that can be validated. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | Superseded by I-0010 for the revised digest. |
 | I-0010 | Approval | blocked | R-0003 `.air/concept.md`, old SHA-256 `a28262f4136073beef8389f49861b24b3a25140a53943df105cfcbbef66e43e8` | The owner requested removing additional metrics/targets as an open item; this approval target is stale after revision. | Owner said additional measures are not needed for now. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | Superseded by I-0011 for the revised digest. |
-| I-0011 | Approval | awaiting-approval | R-0003 `.air/concept.md`, SHA-256 `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | Review this exact Concept and explicitly approve it, or request revisions. Approval establishes the Concept and permits Project to proceed to feature intake; review or silence alone is not approval. | Awaiting owner decision. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | On requested changes, return to draft, revise and resubmit; on explicit approval, validate and record evidence for this exact digest before feature intake. |
+| I-0011 | Approval | resolved | R-0003 `.air/concept.md`, SHA-256 `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | Explicitly approve this exact Concept or request revisions. | Owner explicitly approved with “ik keur deze versie goed” in the task conversation on 2026-11-05. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | Approval A-0010 recorded; continue to Feature intake. |
+| I-0012 | Question | awaiting-input | F-0001 `.air/features/F-0001/proposal.md`, SHA-256 `761cc110ee836c9d505a5eafcc5e491544adb237ef63b822418ccb0f749ebcca` | The captured first feature proposal is to answer questions using relevant, prepared Markdown content with a verifiable source citation; when no relevant source is found, general model knowledge may be used with clear disclosure. Is this the first feature you want to define? If yes, what source detail should the citation show so you can verify it (for example document name and section), and what should be explicitly in or out of this first feature? | Awaiting owner response. | Project.featureIntake -> FeatureIntake.start -> capture -> clarify | Incorporate only answered points; retain gaps and clarify before drafting a Definition. Do not select a release or implement during intake. |
