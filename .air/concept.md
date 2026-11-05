@@ -28,7 +28,10 @@ relevante context; als de client om streaming vraagt, ontvangt die het antwoord
 stapsgewijs.
 
 De informatie uit de organisatiekennis die voor het antwoord wordt gevonden en
-gebruikt, wordt als bron bij het resultaat getoond.
+gebruikt, wordt als bron bij het resultaat getoond. Als er geen relevante bron
+wordt gevonden, mag het onderliggende taalmodel de vraag met zijn eigen kennis
+proberen te beantwoorden; het resultaat maakt dan duidelijk dat dit antwoord
+niet op gevonden organisatiekennis is gebaseerd.
 
 De eigenaar heeft aangegeven dat deze profiel-, kennisverrijkings- en
 routeringsarchitectuur de kern van het product vormt, niet een optionele
@@ -54,12 +57,12 @@ uitbreiding.
 
 ## Succesmaten
 
-Met succesmaten bedoel ik hoe we kunnen vaststellen dat het product het
-bedoelde resultaat voor gebruikers bereikt. Dit gaat om uitkomsten van de
-applicatie, niet om een ontwerpkeuze. Mogelijke onderwerpen om later meetbaar
-te maken zijn bijvoorbeeld of de opgehaalde kennis relevant is voor de vraag,
-of antwoorden aantoonbaar op die kennis steunen en hoe lang een antwoord op
-zich laat wachten. Dit zijn voorbeelden, geen vastgestelde eisen of doelen.
+Met succesmaten bedoel ik hoe we later kunnen beoordelen of Sophista gebruikers
+daadwerkelijk helpt. Bijvoorbeeld: vinden gebruikers relevante informatie,
+zijn antwoorden aantoonbaar op die informatie gebaseerd en komt het antwoord
+snel genoeg? Dit zijn mogelijke manieren om naar het resultaat te kijken, geen
+vastgestelde doelen of eisen. De vraag is dus welke uitkomst jij als eerste
+belangrijk wilt vinden en hoe je zou herkennen dat die goed genoeg is.
 
 De eigenaar heeft nog geen prioritaire uitkomst, meetmethode, streefwaarde of
 acceptatiedrempel gekozen.
@@ -78,6 +81,8 @@ acceptatiedrempel gekozen.
   mogelijke kennisbronnen, zonder de kennisdomeinen daartoe te beperken.
 - De eigenaar vereist dat gevonden en in het antwoord gebruikte informatie als
   bron bij het resultaat wordt weergegeven.
+- Als geen relevante organisatiebron wordt gevonden, mag het taalmodel volgens
+  de eigenaar antwoorden met eigen kennis, mits dit duidelijk wordt vermeld.
 - De eigenaar gaf aan dat Sophista in eerste instantie het gebruikersbeheer van
   OpenWebUI gebruikt.
 - Bewijs: de door de eigenaar aangeleverde Sophista-specificatie en
@@ -89,4 +94,6 @@ acceptatiedrempel gekozen.
   onderliggende model dan algemene kennis gebruiken, of moet Sophista aangeven
   dat er geen passende bron is gevonden?
 - Welke gebruikersuitkomst als eerste beoordeeld wordt en hoe dat overtuigend
-  wordt vastgesteld, is nog niet bepaald.
+  wordt vastgesteld, is nog niet bepaald. Dit betekent: wat moet voor jou het
+  belangrijkste eerste teken zijn dat Sophista nuttig werkt, en waaraan zou je
+  dat kunnen herkennen?
