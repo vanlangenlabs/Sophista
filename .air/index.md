@@ -15,7 +15,7 @@
 - project_or_board: none
 
 ## Current execution
-- status: waiting-human
+- status: blocked
 - phase: Feature intake
 - node_id: clarify
 - call_stack: Project.start -> Project.restore -> Project.conceptNeeded -> Concept.start -> Concept.concept -> Concept.conceptApproval -> Project.featureIntake -> FeatureIntake.start -> capture -> clarify
@@ -23,7 +23,7 @@
 - pending_targets: none
 - feature_id: none
 - release_id: none
-- next_action: Clarify whether the captured F-0001 proposal is the desired first feature and what source detail is needed for users to validate citations. Do not draft a Definition or implement until the proposal is sufficiently clarified.
+- next_action: Resolve the index conflict: `I-0008` appears twice (one awaiting-approval row for digest `069edc80affc9f4778f1b2416874e62f53ac2a2082d94525de072ffe373fd7c1` and one blocked row for the same digest); `I-0009` appears twice (one awaiting-approval row for digest `7e7838b7180aefd84abfbee8ca7cc17e133ac376f35374267e95272809ade917` and one blocked row for the same digest). Preserve the saved Feature-intake position; do not revise Concept until the owner authorizes reconciliation.
 
 ## Records
 | ID | Type | Path | record_status | Current SHA-256 | Approved SHA-256 | Depends on | Tracker reference |
@@ -54,6 +54,7 @@
 | A-0008 | change | R-0003 | `7e7838b7180aefd84abfbee8ca7cc17e133ac376f35374267e95272809ade917` -> `a28262f4136073beef8389f49861b24b3a25140a53943df105cfcbbef66e43e8` | Material Concept revision | Copilot | 2026-11-05T15:42:23Z | Recorded the owner's acceptance criterion: the system formulates an answer with a source citation that can be validated. The Concept retains no numeric thresholds. | Prior approval request I-0009 targets the old digest and is stale; no approval was recorded. | Await explicit approval for this exact digest. |
 | A-0009 | change | R-0003 | `a28262f4136073beef8389f49861b24b3a25140a53943df105cfcbbef66e43e8` -> `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | Editorial Concept revision | Copilot | 2026-11-05T15:45:40Z | Recorded the owner's decision that additional measurement methods and numeric targets are not needed for now. | Prior approval request I-0010 targets the old digest and is stale; no approval was recorded. | Await explicit approval for this exact digest. |
 | A-0010 | decision | R-0003 | `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` -> same | approved | @jvanlangen | 2026-11-05T15:51:31Z | Owner explicitly said “ik keur deze versie goed” in response to the Concept review request for this exact digest. | No dependent approvals or checks invalidated. | Concept established; Project proceeds to Feature intake. |
+| A-0011 | change | R-0002 | unknown -> unknown (self-referential index) | Operational state change: blocked | Copilot | 2026-11-05T17:27:38Z | Resume validation found duplicate historical interaction IDs `I-0008` and `I-0009` with conflicting states; AIRFlow requires reconciliation before continuing. | F-0001 remains proposed; Concept approval A-0010 remains valid. No Concept revision or implementation performed. | Await owner direction on reconciling duplicate interaction IDs; then revalidate the saved Feature-intake position. |
 
 ## Verification evidence
 | Feature/release | Check | Result | Evidence path/reference | Digest | Current/stale and reason |
@@ -76,3 +77,4 @@
 | I-0010 | Approval | blocked | R-0003 `.air/concept.md`, old SHA-256 `a28262f4136073beef8389f49861b24b3a25140a53943df105cfcbbef66e43e8` | The owner requested removing additional metrics/targets as an open item; this approval target is stale after revision. | Owner said additional measures are not needed for now. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | Superseded by I-0011 for the revised digest. |
 | I-0011 | Approval | resolved | R-0003 `.air/concept.md`, SHA-256 `98d78f2fea95559b7d99e733c43e38654804295ed0f9177695309d31efb676a1` | Explicitly approve this exact Concept or request revisions. | Owner explicitly approved with “ik keur deze versie goed” in the task conversation on 2026-11-05. | Project.start -> restore -> conceptNeeded -> Concept.start -> concept -> conceptApproval | Approval A-0010 recorded; continue to Feature intake. |
 | I-0012 | Question | awaiting-input | F-0001 `.air/features/F-0001/proposal.md`, SHA-256 `761cc110ee836c9d505a5eafcc5e491544adb237ef63b822418ccb0f749ebcca` | The captured first feature proposal is to answer questions using relevant, prepared Markdown content with a verifiable source citation; when no relevant source is found, general model knowledge may be used with clear disclosure. Is this the first feature you want to define? If yes, what source detail should the citation show so you can verify it (for example document name and section), and what should be explicitly in or out of this first feature? | Awaiting owner response. | Project.featureIntake -> FeatureIntake.start -> capture -> clarify | Incorporate only answered points; retain gaps and clarify before drafting a Definition. Do not select a release or implement during intake. |
+| I-0013 | Question | blocked | `.air/index.md` duplicate interaction IDs `I-0008` and `I-0009` | The index contains two entries each for `I-0008` and `I-0009`, with different states (awaiting-approval and blocked). May I preserve all entry content and assign fresh, unique IDs to the duplicated rows, recording the correction as an index change event? Alternatively, specify another reconciliation. | Awaiting owner direction. | Project.start -> restore -> Feature intake clarify; saved position remains pending | After reconciliation, resume the saved Feature-intake position and assess the requested Concept revision. |
