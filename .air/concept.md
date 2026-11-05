@@ -64,7 +64,8 @@ opgedeeld in stukken en gevectoriseerd, voordat Sophista ze voor antwoorden
 gebruikt.
 
 De acceptatievoorwaarde is dat het antwoord een controleerbare bronvermelding
-bevat. Aanvullende meetmethoden of numerieke streefwaarden zijn niet vastgesteld.
+bevat. Aanvullende meetmethoden of numerieke streefwaarden zijn voor deze fase
+niet nodig.
 
 ## Besluiten en bewijs
 
@@ -89,10 +90,7 @@ bevat. Aanvullende meetmethoden of numerieke streefwaarden zijn niet vastgesteld
   die vooraf zijn opgedeeld en gevectoriseerd, en dat de gebruikte informatie
   met een bron terug te vinden is.
 - De eigenaar verduidelijkte dat acceptatie betekent dat het systeem een antwoord
-  kan formuleren met een bronvermelding die te valideren is.
+  kan formuleren met een bronvermelding die te valideren is; aanvullende
+  meetmethoden of numerieke streefwaarden zijn voor nu niet nodig.
 - Bewijs: de door de eigenaar aangeleverde Sophista-specificatie en
   verduidelijkingen in de taakconversatie van 2026-11-05.
-
-## Open vragen
-
-- Aanvullende meetmethoden of numerieke streefwaarden zijn niet vastgesteld.
