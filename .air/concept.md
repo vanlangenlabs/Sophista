@@ -90,9 +90,6 @@ acceptatiedrempel gekozen.
 
 ## Open vragen
 
-- Als bij een vraag geen relevante organisatiekennis wordt gevonden, mag het
-  onderliggende model dan algemene kennis gebruiken, of moet Sophista aangeven
-  dat er geen passende bron is gevonden?
 - Welke gebruikersuitkomst als eerste beoordeeld wordt en hoe dat overtuigend
   wordt vastgesteld, is nog niet bepaald. Dit betekent: wat moet voor jou het
   belangrijkste eerste teken zijn dat Sophista nuttig werkt, en waaraan zou je
