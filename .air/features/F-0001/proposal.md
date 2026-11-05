@@ -1,26 +1,30 @@
-# Feature proposal: answer questions with traceable knowledge sources
+# Feature proposal: answer questions from knowledge
 
 ## Proposal
 
-Sophista answers a user's question using relevant Markdown knowledge and returns
-source information the user can verify. The citation location should show the
-current node and its parent nodes. When a content node has no name, its citation
-should identify it with a one-sentence, context-based description. The owner
-considers clear source citation fundamental to the product. A URI for a source
-may also be useful, but whether URI support is required is not yet decided.
+Sophista answers a user's question using relevant Markdown knowledge.
 
 If no relevant source is found, the language model may answer from its general
 knowledge, provided the result clearly identifies that it is not based on
 found organizational knowledge.
 
+## Foundational source-citation requirement
+
+Source citation is a baseline capability of Sophista, not a feature proposal by
+itself. When information is cited, the location should show the current content
+node and its parent nodes. When a content node has no name, its citation should
+identify it with a one-sentence description based on context. Whether a source
+URI is also required remains undecided.
+
 ## Evidence
 
-The project owner described answering from Markdown knowledge with a verifiable
-citation as the desired outcome and confirmed that general model knowledge may
-be used when no relevant source is found if this is clearly disclosed. The owner
-clarified that the citation location should include the current node and its
-parents, and that unnamed content nodes should be described in one sentence
-based on context. The owner raised URI support as a possibility, not a confirmed
-requirement. Confirmation of F-0001's scope and URI support remains pending.
+The project owner described answering from Markdown knowledge as a desired
+outcome and confirmed that general model knowledge may be used when no relevant
+source is found if this is clearly disclosed. The owner clarified that source
+citation is a foundational element, not a feature by itself. Citation locations
+should include the current node and its parents; unnamed content nodes should
+be identified with a one-sentence description based on context. URI support was
+raised as a possibility, not a confirmed requirement. Confirmation that this
+Q&A proposal is the first feature, its scope, and URI support remains pending.
 
 Source: owner responses in the task conversation on 2026-11-05.
