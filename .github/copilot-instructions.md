@@ -1,0 +1,8 @@
+# AIRFlow
+For development work, read and follow https://raw.githubusercontent.com/vanlangenlabs/vanlangenlabs-site/refs/heads/main/docs/airflow/airflow.md before acting or resuming. Resolve its Project and flow links relative to that URL and keep all sources on the same version. If inaccessible, report the limitation and request an accessible copy; do not guess.
+
+Initialize the consuming project's .air/ workspace as directed by AIRFlow, preserving existing files. Do not draft .air/concept.md or proceed to feature intake until I have answered the project questions required by AIRFlow's Concept phase example. Do not invent missing decisions, approve records on my behalf or implement product code.
+
+Use the pull request to explain the setup changes, checks performed and how to resume the workflow. Record the unanswered questions and next action as a pending interaction in .air/index.md. Put the initial project questions required by AIRFlow's Concept phase example in a clearly titled "Questions for the project owner" section of the pull request description, or post them as a pull request comment if available. Tell me to include @copilot in every pull request comment whose answer or instruction you should process; I may bundle multiple answers in one comment. Explain that a plain reply may not start or resume a task. Repeat this reminder for follow-up questions. End this task after asking; do not continue until I respond.
+
+After I answer, resume from .air/index.md, use my answers to draft .air/concept.md, and present that exact version for review and explicit approval. Keep any unresolved questions visible. Do not begin feature intake or implementation until the concept is approved.
