@@ -20,12 +20,13 @@ andere applicatie.
 
 ## Gewenst resultaat
 
-Sophista biedt clients een compatibele middleware-interface met geconfigureerde
-profielen die als afzonderlijke taalmodelkeuzes beschikbaar zijn. Een profiel
-bepaalt uit welke een of meer kenniscategorieën bij een vraag informatie kan
-worden opgehaald en naar welk taalmodel het verzoek wordt gerouteerd. Sophista
-verrijkt zo het verzoek met relevante context; als de client om streaming vraagt,
-ontvangt die het antwoord stapsgewijs.
+Mensen kunnen Sophista via een client een vraag stellen en een antwoord krijgen
+op basis van relevante Markdown-kennis die beschikbaar is voor het gekozen
+profiel. Profielen zijn afzonderlijke taalmodelkeuzes en bepalen uit welke een
+of meer kenniscategorieën informatie kan worden opgehaald en naar welk taalmodel
+het verzoek wordt gerouteerd. Sophista verrijkt zo het verzoek met relevante
+context; als de client om streaming vraagt, ontvangt die het antwoord
+stapsgewijs.
 
 Sophista biedt een API om gestructureerde kennis te beheren. Kennis kan documenten
 met een hiërarchie van geneste knooppunten omvatten. De documenthiërarchie en de
@@ -42,12 +43,15 @@ herkennen. Bij incrementele synchronisatie blijven identiteiten waar mogelijk
 behouden; alleen embeddings die afhankelijk zijn van gewijzigde inhoud worden
 ongeldig gemaakt.
 
-Informatie uit de organisatiekennis die voor het antwoord wordt gevonden en
-gebruikt, wordt als bron bij het resultaat getoond, met een verwijzing die de
-oorspronkelijke locatie in het document traceerbaar maakt. Als er geen relevante
-bron wordt gevonden, mag het onderliggende taalmodel de vraag met zijn eigen
-kennis proberen te beantwoorden; het resultaat maakt dan duidelijk dat dit
-antwoord niet op gevonden organisatiekennis is gebaseerd.
+De informatie uit de organisatiekennis die voor het antwoord wordt gevonden en
+gebruikt, wordt als controleerbare bron bij het resultaat getoond. De verwijzing
+maakt de locatie traceerbaar vanaf het huidige inhoudsknooppunt via de
+bovenliggende knooppunten. Als een inhoudsknooppunt geen naam heeft, wordt het
+met een contextgebaseerde beschrijving van één zin aangeduid. Of de bronvermelding
+ook een URI bevat, is nog niet besloten. Als er geen relevante bron wordt
+gevonden, mag het onderliggende taalmodel de vraag met zijn eigen kennis
+proberen te beantwoorden; het resultaat maakt dan duidelijk dat dit antwoord
+niet op gevonden organisatiekennis is gebaseerd.
 
 De eigenaar heeft aangegeven dat deze profiel-, kennisverrijkings- en
 routeringsarchitectuur de kern van het product vormt, niet een optionele
@@ -66,6 +70,10 @@ uitbreiding.
   indeling te volgen.
 - Sophista heeft geen eigen gebruikersbeheer; een andere applicatie is hiervoor
   verantwoordelijk.
+- De bronvermelding kan de huidige locatie en de bovenliggende documentlocaties
+  tonen; inhoud zonder naam wordt met een contextgebaseerde beschrijving van één
+  zin aangeduid. Of een URI ook deel uitmaakt van de bronvermelding is nog niet
+  besloten.
 - De organisatiekennis kan uit verschillende soorten bronnen komen, waaronder
   code, handleidingen van machines, klant-URS'en en wiki's. Deze voorbeelden
   beperken de mogelijke kennisdomeinen niet.
@@ -126,5 +134,10 @@ niet nodig.
   behoudt en alleen afhankelijke embeddings ongeldig maakt bij gewijzigde inhoud.
 - De eigenaar vroeg om profielen die meerdere kenniscategorieën kunnen gebruiken
   en om bronverwijzingen die de oorspronkelijke documentlocatie traceerbaar maken.
+- De eigenaar verduidelijkte dat Sophista vragen moet kunnen beantwoorden op
+  basis van relevante Markdown-kennis en dat bronvermelding een fundamenteel
+  productelement is, geen afzonderlijke feature. De bronvermelding toont de
+  huidige inhoudsnode en de bovenliggende nodes; een node zonder naam krijgt een
+  contextgebaseerde beschrijving van één zin. URI-ondersteuning is niet bevestigd.
 - Bewijs: de door de eigenaar aangeleverde Sophista-specificatie en
   verduidelijkingen in de taakconversatie van 2026-11-05.
